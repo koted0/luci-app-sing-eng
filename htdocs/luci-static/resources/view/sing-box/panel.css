@@ -51,7 +51,7 @@
   max-width: 100%;
   margin-right: 0.5em;
 }
-/* 黄色警示按钮（重启） */
+/* Amber warning button (restart) */
 #sing-box-panel .cbi-button-warning {
   color: #d97706 !important;
   border-color: rgba(217, 119, 6, 0.35) !important;

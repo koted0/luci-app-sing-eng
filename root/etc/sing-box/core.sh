@@ -8,13 +8,13 @@ MAX_SIZE=65536
 
 prepare() {
 	umask 077
-	[ "$(id -u)" = 0 ] || { DETAILS='面板后端必须以 root 身份运行'; return 1; }
-	[ ! -L "$RUN" ] || { DETAILS="$RUN 是符号链接"; return 1; }
-	mkdir -p "$RUN" || { DETAILS="无法创建 $RUN"; return 1; }
+	[ "$(id -u)" = 0 ] || { DETAILS='The panel backend must run as root'; return 1; }
+	[ ! -L "$RUN" ] || { DETAILS="$RUN is a symbolic link"; return 1; }
+	mkdir -p "$RUN" || { DETAILS="Unable to create $RUN"; return 1; }
 	[ -d "$RUN" ] && [ -O "$RUN" ] || {
-		DETAILS="$RUN 必须是 root 所有的目录"; return 1;
+		DETAILS="$RUN must be a directory owned by root"; return 1;
 	}
-	chmod 700 "$RUN" || { DETAILS="无法设置 $RUN 的权限"; return 1; }
+	chmod 700 "$RUN" || { DETAILS="Unable to set permissions on $RUN"; return 1; }
 }
 
 load_settings() {
@@ -159,7 +159,7 @@ stop_service() {
 			if kill -0 "$pid" 2>/dev/null; then alive=1; fi
 		done
 		[ "$alive" = 0 ] && return 0
-		[ "$attempt" -lt 10 ] || { ERROR=stop_failed; DETAILS='等待服务进程退出超时'; return 1; }
+		[ "$attempt" -lt 10 ] || { ERROR=stop_failed; DETAILS='Timed out waiting for the service process to exit'; return 1; }
 		sleep 1
 	done
 }
@@ -251,18 +251,18 @@ reset_cache() {
 	# Re-read configuration and revalidate paths after waiting for the service.
 	cache_settings || return 1
 	[ "$expected" = "$CACHE_TOKEN" ] || { ERROR=cache_changed; return 1; }
-	job running operation_running "缓存文件：$CACHE" cache_reset
+	job running operation_running "Cache file: $CACHE" cache_reset
 	rm -f "$CACHE" || { ERROR=cache_remove_failed; return 1; }
 	if [ "$start" = 1 ]; then
 		if ! start_service start cache_start_failed; then
 			failure="$DETAILS"
-			if ! stop_service; then failure="$failure；停止服务失败，请检查运行状态"; fi
+			if ! stop_service; then failure="$failure; failed to stop the service, check its running state"; fi
 			ERROR=cache_start_failed
 			DETAILS="$failure"
 			return 1
 		fi
 	fi
-	DETAILS="缓存文件：$CACHE"
+	DETAILS="Cache file: $CACHE"
 }
 
 check_config() {

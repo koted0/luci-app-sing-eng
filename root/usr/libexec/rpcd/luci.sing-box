@@ -65,23 +65,23 @@ case "$2" in
 		trap 'unlock' EXIT
 		tmp="/tmp/sing-box.new"
 		rm -f "$tmp"
-		# 优先使用 curl 支持 302 重定向及 SSL；若无则使用 wget
+		# Prefer curl (supports 302 redirects and SSL); fall back to wget
 		if command -v curl >/dev/null 2>&1; then
 			curl -sSL -k -m 60 -o "$tmp" "$url"
 		else
 			wget -q --no-check-certificate -T 60 -O "$tmp" "$url"
 		fi
-		# 校验下载到的二进制是否可用
+		# Check that the downloaded binary works
 		if [ -s "$tmp" ] && chmod +x "$tmp" && "$tmp" version >/dev/null 2>&1; then
 			new_ver=$("$tmp" version 2>/dev/null | head -n 1 | sed 's/version //')
 			service_do stop >/dev/null 2>&1
 			mv -f "$tmp" "$BIN" || { service_do start >/dev/null 2>&1; reply 0 'config_save_failed'; exit 0; }
 			chmod +x "$BIN"
 			service_do restart >/dev/null 2>&1
-			reply 1 'core_updated' "核心已更新为：$new_ver"
+			reply 1 'core_updated' "Core updated to: $new_ver"
 		else
-			# 下载失败时先不 rm，保留文件在 /tmp/sing-box.new 方便排查
-			reply 0 'download_failed' "核心下载失败，请检查网络重试"
+			# On download failure keep /tmp/sing-box.new for troubleshooting
+			reply 0 'download_failed' "Core download failed. Check the network and try again"
 		fi
 		exit 0;;
 	cache)

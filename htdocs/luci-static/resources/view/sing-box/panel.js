@@ -28,66 +28,66 @@ const api = {
 };
 
 const messages = {
-  apply_failed: '配置已保存，但服务未能启动，请检查日志并修改配置',
-  operation_interrupted: '操作已中断，请检查配置和服务状态',
-  config_path_invalid: 'sing-box.main.conffile 必须是绝对路径',
-  workdir_invalid: 'sing-box.main.workdir 必须是绝对路径',
-  config_not_regular: '配置路径不是普通文件',
-  config_symlink: '不支持符号链接配置文件',
-  service_missing: '缺少 sing-box 可执行文件或启动脚本',
-  config_missing: '没有已保存的配置',
-  config_too_large: '配置大小超过 64 KiB',
-  check_failed: '配置校验失败（退出码 %s）',
-  check_prepare_failed: '无法准备临时校验文件',
-  operation_running: '正在执行：%s',
-  check_passed: '配置文件通过 sing-box 校验',
-  config_applied: '配置已应用，服务运行中。',
-  start_failed: '服务未能启动，请检查日志',
-  service_running: '服务正在运行',
-  stop_failed: '服务未能停止',
-  service_stopped: '服务已停止',
-  action_unknown: '未知操作',
-  directories_failed: '无法初始化面板目录',
-  logs_failed: '无法读取系统日志（logread 失败或超时）',
-  request_invalid: '请求无效',
-  content_invalid: '配置内容必须是字符串',
-  operation_busy: '另一项操作正在执行',
-  config_save_failed: '无法保存配置文件',
-  config_saved: '配置文件已保存；服务未重启',
-  config_changed: '配置文件已改变，请重新加载后再保存或应用',
-  operation_queued: '操作已加入队列',
-  enabled_invalid: 'enabled 必须是布尔值',
-  autostart_updated: '开机启动设置已更新',
-  autostart_failed: '无法更改开机启动设置',
-  method_unknown: '未知方法',
-  core_updated: '核心更新成功，服务已重启',
-  download_failed: '核心下载失败，请检查下载地址和网络连通性',
-  url_invalid: '下载地址无效，请填写正确的 URL',
-  service_status_failed: '无法确认服务进程状态，操作已中止',
-  cache_disabled: '已保存配置未启用缓存文件，无需清理',
-  cache_missing: '缓存文件不存在，无需清理',
-  cache_config_invalid: '无法读取有效配置，不能确定缓存文件',
-  cache_workdir_unsafe: '仅支持无符号链接的专用工作目录：/etc/sing-box、/usr/share/sing-box、/var/lib/sing-box、/tmp/sing-box',
-  cache_path_unsafe: '缓存路径不安全：必须是工作目录内的普通文件，不能是配置文件、链接或挂载路径',
-  cache_inspect_failed: '无法读取缓存文件或挂载信息，请检查系统工具和文件访问权限',
-  cache_changed: '配置或缓存文件已改变，请重新打开确认窗口',
-  cache_remove_failed: '清理缓存失败，服务保持停止',
-  cache_start_failed: '缓存已清理，但服务未能启动，请检查日志；旧缓存未备份',
-  cache_reset: '缓存已清理，服务保持停止',
-  cache_reset_start: '缓存已清理，服务已重新启动',
+  apply_failed: 'Configuration saved, but the service failed to start. Check the logs and fix the configuration',
+  operation_interrupted: 'Operation interrupted. Check the configuration and service status',
+  config_path_invalid: 'sing-box.main.conffile must be an absolute path',
+  workdir_invalid: 'sing-box.main.workdir must be an absolute path',
+  config_not_regular: 'The configuration path is not a regular file',
+  config_symlink: 'Symbolic-link configuration files are not supported',
+  service_missing: 'The sing-box executable or init script is missing',
+  config_missing: 'No saved configuration',
+  config_too_large: 'Configuration exceeds 64 KiB',
+  check_failed: 'Configuration check failed (exit code %s)',
+  check_prepare_failed: 'Unable to prepare the temporary check file',
+  operation_running: 'Running: %s',
+  check_passed: 'The configuration passed the sing-box check',
+  config_applied: 'Configuration applied. The service is running.',
+  start_failed: 'The service failed to start. Check the logs',
+  service_running: 'The service is running',
+  stop_failed: 'The service failed to stop',
+  service_stopped: 'The service has stopped',
+  action_unknown: 'Unknown action',
+  directories_failed: 'Unable to initialize the panel directories',
+  logs_failed: 'Unable to read the system log (logread failed or timed out)',
+  request_invalid: 'Invalid request',
+  content_invalid: 'Configuration content must be a string',
+  operation_busy: 'Another operation is in progress',
+  config_save_failed: 'Unable to save the configuration file',
+  config_saved: 'Configuration file saved; the service was not restarted',
+  config_changed: 'The configuration file has changed. Reload it before saving or applying',
+  operation_queued: 'Operation queued',
+  enabled_invalid: 'enabled must be a boolean',
+  autostart_updated: 'Autostart setting updated',
+  autostart_failed: 'Unable to change the autostart setting',
+  method_unknown: 'Unknown method',
+  core_updated: 'Core updated successfully and the service was restarted',
+  download_failed: 'Core download failed. Check the download URL and network connectivity',
+  url_invalid: 'Invalid download URL. Enter a valid URL',
+  service_status_failed: 'Unable to determine the service process status; operation aborted',
+  cache_disabled: 'The saved configuration does not enable a cache file; nothing to clear',
+  cache_missing: 'The cache file does not exist; nothing to clear',
+  cache_config_invalid: 'Unable to read a valid configuration, so the cache file cannot be determined',
+  cache_workdir_unsafe: 'Only dedicated working directories without symbolic links are supported: /etc/sing-box, /usr/share/sing-box, /var/lib/sing-box, /tmp/sing-box',
+  cache_path_unsafe: 'Unsafe cache path: it must be a regular file inside the working directory, and cannot be the configuration file, a link or a mount path',
+  cache_inspect_failed: 'Unable to read the cache file or mount information. Check system tools and file access permissions',
+  cache_changed: 'The configuration or cache file has changed. Reopen the confirmation dialog',
+  cache_remove_failed: 'Failed to clear the cache; the service remains stopped',
+  cache_start_failed: 'Cache cleared, but the service failed to start. Check the logs; the old cache was not backed up',
+  cache_reset: 'Cache cleared; the service remains stopped',
+  cache_reset_start: 'Cache cleared and the service restarted',
 };
 
 const actions = {
-  validate: '校验',
-  apply: '应用',
-  start: '启动',
-  stop: '停止',
-  restart: '重启',
-  cache_reset: '清理缓存',
-  cache_reset_start: '清理缓存并启动',
+  validate: 'Validate',
+  apply: 'Apply',
+  start: 'Start',
+  stop: 'Stop',
+  restart: 'Restart',
+  cache_reset: 'Clear cache',
+  cache_reset_start: 'Clear cache and start',
 };
 
-// 提示条配色跟随触发它的按钮
+// Notification colors follow the button that triggered them
 const toneColors = {
   apply: '#16a34a',
   warning: '#d97706',
@@ -101,17 +101,17 @@ function message(result) {
   const value = result.code === 'operation_running' ? actions[result.argument] : result.argument;
   return Object.prototype.hasOwnProperty.call(messages, result.code)
     ? messages[result.code].replace('%s', () => (value == null ? '' : String(value)))
-    : result.message || '后端返回无效响应';
+    : result.message || 'Invalid response from the backend';
 }
 
 function checked(result) {
-  if (!result || !result.ok) throw new Error(result ? (result.details || message(result)) : '后端返回无效响应');
+  if (!result || !result.ok) throw new Error(result ? (result.details || message(result)) : 'Invalid response from the backend');
   return result;
 }
 
 function formatUptime(seconds) {
   const total = Math.floor(Number(seconds));
-  if (!isFinite(total) || total < 0) return '未运行';
+  if (!isFinite(total) || total < 0) return 'Not running';
   const d = Math.floor(total / 86400);
   const h = Math.floor((total % 86400) / 3600);
   const m = Math.floor((total % 3600) / 60);
@@ -207,16 +207,16 @@ return view.extend({
   updateDirty() {
     let text, color;
     if (!this.loaded) {
-      text = '配置读取失败，请修复后重载。';
+      text = 'Failed to read the configuration. Fix the problem and reload.';
       color = toneColors.negative;
     } else if (this.status.revision && this.status.revision !== this.revision) {
       text = messages.config_changed;
       color = toneColors.warning;
     } else if (this.editor.value !== this.savedText) {
-      text = '有未保存的修改，请校验配置后保存并应用!';
+      text = 'Unsaved changes. Validate the configuration, then save and apply.';
       color = toneColors.warning;
     } else {
-      text = '编辑器内容与配置文件一致。';
+      text = 'Editor content matches the configuration file.';
       color = toneColors.apply;
     }
     this.dirty.textContent = text;
@@ -234,7 +234,7 @@ return view.extend({
   },
 
   content() {
-    if (!this.loaded) throw new Error('请先重载配置');
+    if (!this.loaded) throw new Error('Reload the configuration first');
     if (new Blob([this.editor.value]).size > 65536) throw new Error(messages.config_too_large);
     return this.editor.value;
   },
@@ -246,10 +246,10 @@ return view.extend({
   },
 
   async showCacheReset() {
-    this.notify('正在清理缓存并重启服务，请稍候...');
+    this.notify('Clearing the cache and restarting the service, please wait...');
     const plan = await api.cache();
     if (!plan || !plan.ok) {
-      throw new Error(plan ? message(plan) : '后端返回无效响应');
+      throw new Error(plan ? message(plan) : 'Invalid response from the backend');
     }
     await this.queue('cache_reset_start', plan.token);
   },
@@ -308,12 +308,12 @@ return view.extend({
 
   updateStatus(status) {
     this.status = status;
-    this.runtime.textContent = status.running ? '运行中 · PID ' + status.pid : '已停止';
-    this.version.textContent = status.version || '未检测到内核';
-    this.uptime.textContent = status.running ? formatUptime(status.uptime) : '未运行';
+    this.runtime.textContent = status.running ? 'Running · PID ' + status.pid : 'Stopped';
+    this.version.textContent = status.version || 'Core not detected';
+    this.uptime.textContent = status.running ? formatUptime(status.uptime) : 'Not running';
     if (!this.localBusy) {
       this.boot.checked = !!status.autostart;
-      if (this.bootText) this.bootText.textContent = this.boot.checked ? '已开启' : '未开启';
+      if (this.bootText) this.bootText.textContent = this.boot.checked ? 'Enabled' : 'Disabled';
     }
     this.problem.textContent = status.error_code ? message({ code: status.error_code }) : status.error || '';
     this.problem.hidden = !this.problem.textContent;
@@ -330,7 +330,7 @@ return view.extend({
           }
         }
       } catch {
-        this.notify('无法解析后台操作状态', true);
+        this.notify('Unable to parse the background job status', true);
       }
     }
     this.updateDirty();
@@ -348,18 +348,18 @@ return view.extend({
       const result = checked(await api.logs());
       this.logHint.textContent =
         result.mode === 'file'
-          ? '日志写入文件：' + result.output + '。下方仅显示系统日志。'
+          ? 'Logs are written to file: ' + result.output + '. Only the system log is shown below.'
           : result.mode === 'disabled'
-            ? '运行日志已关闭，下方可能是历史日志。'
+            ? 'Logging is disabled; the log below may be old.'
             : result.log_stderr === false
-              ? 'log_stderr 已关闭，日志收集取决于设备启动脚本。'
+              ? 'log_stderr is off; log collection depends on the device init script.'
               : '';
       // oxlint-disable-next-line no-control-regex -- Strip ANSI color codes from system logs.
       const ansi = /(?:\x1b\[|\x9b)[0-9;:]*m/g;
-      this.logs.value = (result.content || '').replace(ansi, '') || '暂无 sing-box 系统日志。';
-      this.logUpdated.textContent = '更新于 ' + new Date().toLocaleTimeString('zh-CN');
+      this.logs.value = (result.content || '').replace(ansi, '') || 'No sing-box system log entries yet.';
+      this.logUpdated.textContent = 'Updated at ' + new Date().toLocaleTimeString();
     } catch (error) {
-      this.logHint.textContent = '日志刷新失败：' + error.message;
+      this.logHint.textContent = 'Log refresh failed: ' + error.message;
     } finally {
       this.loadingLogs = false;
     }
@@ -381,48 +381,48 @@ return view.extend({
       class: 'cbi-input-textarea',
       rows: 24,
       spellcheck: 'false',
-      'aria-label': 'sing-box JSON 配置',
+      'aria-label': 'sing-box JSON configuration',
       input: () => this.updateDirty(),
     });
     const checkbox = new ui.Checkbox('0', { id: 'sing-box-autostart' }).render();
     this.boot = checkbox.querySelector('input[type="checkbox"]');
-    this.boot.setAttribute('aria-label', '开机启动');
-    this.bootText = E('span', { style: 'margin-left: 8px;' }, this.boot.checked ? '已开启' : '未开启');
+    this.boot.setAttribute('aria-label', 'Start on boot');
+    this.bootText = E('span', { style: 'margin-left: 8px;' }, this.boot.checked ? 'Enabled' : 'Disabled');
     checkbox.appendChild(this.bootText);
     this.boot.addEventListener('change', () => {
       const enabled = this.boot.checked;
-      this.bootText.textContent = enabled ? '已开启' : '未开启';
+      this.bootText.textContent = enabled ? 'Enabled' : 'Disabled';
       this.run(async () => {
         checked(await api.autostart(enabled));
         this.notify(messages.autostart_updated);
       }, true);
     });
 
-    const overview = E('div', { 'data-tab': 'overview', 'data-tab-title': '概览' }, [
-      field('运行状态', this.runtime),
-      field('内核版本', this.version),
-      field('运行时间', this.uptime),
-      field('开机启动', checkbox),
+    const overview = E('div', { 'data-tab': 'overview', 'data-tab-title': 'Overview' }, [
+      field('Status', this.runtime),
+      field('Core version', this.version),
+      field('Uptime', this.uptime),
+      field('Start on boot', checkbox),
       field(
-        '服务操作',
+        'Service actions',
         E('div', { class: 'sing-box-actions' }, [
-          this.button('启动', () => this.queue('start'), 'apply'),
-          this.button('重启', () => this.queue('restart'), 'warning'),
-          this.button('停止', () => this.queue('stop'), 'negative'),
-          this.button('更新', async () => {
+          this.button('Start', () => this.queue('start'), 'apply'),
+          this.button('Restart', () => this.queue('restart'), 'warning'),
+          this.button('Stop', () => this.queue('stop'), 'negative'),
+          this.button('Update config', async () => {
             const inputEl = document.getElementById('custom-download-url');
             const url = (inputEl && inputEl.value.trim()) || uci.get('sing-box', 'main', 'download_url');
-            if (!url) return alert('请先在配置页输入下载地址链接后重试');
-            this.notify('正在更新配置，请稍候...');
+            if (!url) return alert('Enter a config download URL on the Config tab first and try again');
+            this.notify('Updating the configuration, please wait...');
             try {
               uci.set('sing-box', 'main', 'download_url', url);
               await uci.save();
               await uci.apply();
             } catch (e) {
-              console.warn('UCI 保存失败:', e);
+              console.warn('UCI save failed:', e);
             }
             const r = await fetch(url);
-            if (!r.ok) throw new Error('网络响应异常: ' + r.statusText);
+            if (!r.ok) throw new Error('Unexpected network response: ' + r.statusText);
             const txt = await r.text();
             this.editor.value = txt;
             this.updateDirty();
@@ -430,18 +430,18 @@ return view.extend({
           }, 'neutral'),
         ]),
       ),
-      field('维护服务', [
+      field('Maintenance', [
         E('div', { class: 'sing-box-actions' }, [
-          this.button('清理缓存', () => this.showCacheReset(), 'negative'),
-          this.button('更新核心', async () => {
+          this.button('Clear cache', () => this.showCacheReset(), 'negative'),
+          this.button('Update core', async () => {
             const inputEl = document.getElementById('custom-core-url');
             const url = (inputEl && inputEl.value.trim()) || uci.get('sing-box', 'main', 'core_url');
-            if (!url) return alert('请先前往「配置」标签页填写下载核心地址');
-            this.notify('正在后台下载并更新核心，请稍候...');
+            if (!url) return alert('Go to the Config tab and enter the core download URL first');
+            this.notify('Downloading and updating the core in the background, please wait...');
             const res = checked(await api.updateCore(url));
             this.notify(res.details || messages.core_updated);
           }, 'warning'),
-          this.button('打开面板', () => {
+          this.button('Open dashboard', () => {
             let port = '9090';
             let secret = '';
             try {
@@ -455,19 +455,19 @@ return view.extend({
                 secret = apiCfg.secret;
               }
             } catch (e) {
-              /* JSON 解析失败时使用默认端口 9090 */
+              /* Fall back to the default port 9090 if JSON parsing fails */
             }
             const host = location.hostname;
             const hash = `#/proxies${secret ? `?host=${host}&port=${port}&secret=${encodeURIComponent(secret)}` : ''}`;
             window.open(`${location.protocol}//${host}:${port}/ui/${hash}`, '_blank');
           }, 'action'),
         ]),
-        E('div', { class: 'cbi-value-description' }, '清理cache数据库 · 更新sing-box核心 · 打开Web控制面板'),
+        E('div', { class: 'cbi-value-description' }, 'Clear cache database · Update sing-box core · Open web dashboard'),
       ]),
     ]);
 
-    const config = E('div', { 'data-tab': 'config', 'data-tab-title': '配置' }, [
-      field('下载核心地址', E('div', {}, [
+    const config = E('div', { 'data-tab': 'config', 'data-tab-title': 'Config' }, [
+      field('Core download URL', E('div', {}, [
         E('input', {
           type: 'text',
           class: 'cbi-input-text',
@@ -475,22 +475,22 @@ return view.extend({
           id: 'custom-core-url',
           value: uci.get('sing-box', 'main', 'core_url') || ''
         }),
-        this.button('下载核心', async () => {
+        this.button('Download core', async () => {
           const url = document.getElementById('custom-core-url').value.trim();
-          if (!url) return alert('请填写核心下载地址');
-          this.notify('正在下载核心，请稍候...');
+          if (!url) return alert('Enter the core download URL');
+          this.notify('Downloading the core, please wait...');
           try {
             uci.set('sing-box', 'main', 'core_url', url);
             await uci.save();
             await uci.apply();
           } catch (e) {
-            console.warn('UCI 保存失败:', e);
+            console.warn('UCI save failed:', e);
           }
           const res = checked(await api.updateCore(url));
           this.notify(res.details || messages.core_updated);
         }, 'warning')
       ])),
-      field('下载配置文件', E('div', {}, [
+      field('Download config file', E('div', {}, [
         E('input', {
           type: 'text',
           class: 'cbi-input-text',
@@ -498,63 +498,63 @@ return view.extend({
           id: 'custom-download-url',
           value: uci.get('sing-box', 'main', 'download_url') || ''
         }),
-        this.button('下载配置', async () => {
+        this.button('Download config', async () => {
           const url = document.getElementById('custom-download-url').value.trim();
-          if (!url) return alert('请填写配置下载地址');
-          this.notify('正在拉取配置文件...');
+          if (!url) return alert('Enter the config download URL');
+          this.notify('Fetching the configuration file...');
           try {
             uci.set('sing-box', 'main', 'download_url', url);
             await uci.save();
             await uci.apply();
           } catch (e) {
-            console.warn('UCI 保存失败:', e);
+            console.warn('UCI save failed:', e);
           }
           try {
             const r = await fetch(url);
-            if (!r.ok) throw new Error('网络响应异常: ' + r.statusText);
+            if (!r.ok) throw new Error('Unexpected network response: ' + r.statusText);
             const txt = await r.text();
             this.editor.value = txt;
             this.updateDirty();
-            this.notify('配置文件拉取成功，请确认后点击下方「保存并应用」');
+            this.notify('Configuration fetched. Review it, then click "Save & apply" below');
           } catch (e) {
-            this.notify('下载错误: ' + e.message, true);
+            this.notify('Download error: ' + e.message, true);
           }
         }, 'neutral')
       ])),
-      field('上传配置文件', E('div', {}, [
+      field('Upload config file', E('div', {}, [
         E('input', { type: 'file', class: 'cbi-input-file', id: 'upload-config-file' }),
         E('button', {
           type: 'button',
           class: 'cbi-button cbi-button-action',
           click: () => {
             const input = document.getElementById('upload-config-file');
-            if (!input.files.length) return alert('请选择文件');
+            if (!input.files.length) return alert('Select a file');
             const file = input.files[0];
             const reader = new FileReader();
             reader.onload = e => {
               this.editor.value = e.target.result;
               this.updateDirty();
-              this.notify('配置文件已导入编辑器，请确认后保存并应用', false, null, 'action');
+              this.notify('Configuration imported into the editor. Review it, then save and apply', false, null, 'action');
             };
-            reader.onerror = () => alert('读取文件失败');
+            reader.onerror = () => alert('Failed to read the file');
             reader.readAsText(file);
           }
-        }, '上传配置')
+        }, 'Upload config')
       ])),
 
       E(
         'div',
         { class: 'cbi-section-descr' },
-        '直接编辑 JSON。校验不保存；保存并应用会先写入文件，校验通过后重启服务。',
+        'Edit the JSON directly. Validation does not save; Save & apply writes the file first, then restarts the service once the check passes.',
       ),
       this.dirty,
       this.checkNotice,
       this.editor,
       E('div', { class: 'cbi-page-actions sing-box-actions' }, [
         this.button(
-          '重载配置',
+          'Reload config',
           async () => {
-            if (this.loaded && this.editor.value !== this.savedText && !window.confirm('放弃未保存的修改并重载配置？'))
+            if (this.loaded && this.editor.value !== this.savedText && !window.confirm('Discard unsaved changes and reload the configuration?'))
               return;
             this.setConfig(await api.read());
           },
@@ -562,9 +562,9 @@ return view.extend({
           false,
         ),
         this.button(
-          '校验配置',
+          'Validate config',
           async () => {
-            this.setCheckNotice('正在校验配置，请稍候...', false);
+            this.setCheckNotice('Validating the configuration, please wait...', false);
             try {
               checked(await api.check(this.content()));
               this.pendingCheck = true;
@@ -580,7 +580,7 @@ return view.extend({
           true,
         ),
         this.button(
-          '格式化配置',
+          'Format config',
           () => {
             this.editor.value = JSON.stringify(JSON.parse(this.content()), null, 2) + '\n';
             this.updateDirty();
@@ -589,7 +589,7 @@ return view.extend({
           true,
           true,
         ),
-        this.button('保存并应用', () => this.save(), 'apply', true, true),
+        this.button('Save & apply', () => this.save(), 'apply', true, true),
       ]),
     ]);
 
@@ -599,9 +599,9 @@ return view.extend({
       class: 'cbi-input-textarea',
       rows: 20,
       readonly: '',
-      'aria-label': 'sing-box 系统日志',
+      'aria-label': 'sing-box system log',
     });
-    const logs = E('div', { 'data-tab': 'logs', 'data-tab-title': '日志' }, [this.logHint, this.logUpdated, this.logs]);
+    const logs = E('div', { 'data-tab': 'logs', 'data-tab-title': 'Logs' }, [this.logHint, this.logUpdated, this.logs]);
     logs.addEventListener('cbi-tab-active', () => this.refreshLogs());
 
     const panes = E('div', {}, [overview, config, logs]);
@@ -609,7 +609,7 @@ return view.extend({
     const root = E('div', { class: 'cbi-map', id: 'sing-box-panel' }, [
       E('link', { rel: 'stylesheet', href: L.resource('view/sing-box/panel.css') }),
       E('h2', {}, 'Sing'),
-      E('p', { class: 'cbi-map-descr' }, this.writable ? '配置与服务管理' : '当前账号仅有查看权限。'),
+      E('p', { class: 'cbi-map-descr' }, this.writable ? 'Configuration and service management' : 'This account has read-only access.'),
       this.problem,
       E('div', { class: 'cbi-section' }, [panes]),
     ]);
@@ -630,7 +630,7 @@ return view.extend({
       try {
         await this.refresh();
       } catch (error) {
-        this.problem.textContent = '状态刷新失败：' + error.message;
+        this.problem.textContent = 'Status refresh failed: ' + error.message;
         this.problem.hidden = false;
       }
       if (logs.getAttribute('data-tab-active') === 'true') await this.refreshLogs();

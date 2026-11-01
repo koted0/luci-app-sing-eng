@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
-LUCI_TITLE:=Sing 配置与服务管理面板
-LUCI_DESCRIPTION:=sing-box配置与服务轻量管理面板
+LUCI_TITLE:=Sing configuration and service management panel
+LUCI_DESCRIPTION:=Lightweight sing-box configuration and service management panel
 LUCI_DEPENDS:=+luci-base +sing-box +rpcd +jshn +jsonfilter +curl
 LUCI_PKGARCH:=all
 
@@ -10,7 +10,7 @@ PKG_NAME:=luci-app-sing
 PKG_VERSION:=1.2
 PKG_RELEASE:=3
 
-# 允许外部环境变量或 SDK 覆盖版本号
+# Allow an environment variable or the SDK to override the version
 ifneq ($(LUCI_SING_VERSION),)
   PKG_VERSION:=$(LUCI_SING_VERSION)
 endif
